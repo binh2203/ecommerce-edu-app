@@ -1,0 +1,424 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "name": "Khoá học Lập trình Python cơ bản",
+      "description": "Khám phá lập trình từ số 0 với Python. Phù hợp cho người mới bắt đầu.",
+      "price": 490000,
+      "image_url": "python_course.png"
+    },
+    {
+      "id": 2,
+      "name": "Lớp học trực tuyến: IELTS 7.0+",
+      "description": "Chiến lược luyện thi IELTS cùng giảng viên chuyên sâu.",
+      "price": 1290000,
+      "image_url": "ielts_online.png"
+    },
+    {
+      "id": 3,
+      "name": "Combo Giáo trình Toán tư duy",
+      "description": "Tài liệu giúp bé phát triển tư duy logic và giải toán.",
+      "price": 320000,
+      "image_url": "math_combo.png"
+    },
+    {
+      "id": 4,
+      "name": "Khoá học UI/UX Design thực chiến",
+      "description": "Thiết kế giao diện hiện đại, trải nghiệm mượt mà trên Figma & Adobe XD.",
+      "price": 790000,
+      "image_url": "uiux_course.png"
+    },
+    {
+      "id": 5,
+      "name": "Tài liệu luyện thi THPT Quốc Gia môn Văn",
+      "description": "Bộ đề cương và tài liệu phân tích tác phẩm trọng tâm.",
+      "price": 150000,
+      "image_url": "van_thpt.png"
+    },
+    {
+      "id": 6,
+      "name": "Khoá học AI ứng dụng trong giáo dục",
+      "description": "Hiểu và triển khai các mô hình AI trong lĩnh vực học tập thông minh.",
+      "price": 1590000,
+      "image_url": "ai_education.png"
+    },
+    {
+      "id": 7,
+      "name": "Khóa học Tư duy phản biện cho học sinh",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 1505735,
+      "image_url": "tu_duy_phan_bien.png"
+    },
+    {
+      "id": 8,
+      "name": "Khoá học Digital Marketing 2025",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 1998603,
+      "image_url": "digital_marketing.png"
+    },
+    {
+      "id": 9,
+      "name": "Combo giáo trình Toán lớp 6",
+      "description": "Thực hành qua bài tập và dự án cuối khoá.",
+      "price": 1252923,
+      "image_url": "math_combo2.png"
+    },
+    {
+      "id": 10,
+      "name": "Khoá học Photoshop cho Designer",
+      "description": "Phù hợp với học sinh, sinh viên và người đi làm.",
+      "price": 1858688,
+      "image_url": "photoshop_for_designer.png"
+    },
+    {
+      "id": 11,
+      "name": "Giáo trình Ngữ pháp Tiếng Anh nâng cao",
+      "description": "Khám phá kiến thức nền tảng và kỹ năng ứng dụng thực tế.",
+      "price": 863546,
+      "image_url": "tienganhnangcao.png"
+    },
+    {
+      "id": 12,
+      "name": "Lớp học trực tuyến: Tiếng Nhật sơ cấp",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 213703,
+      "image_url": "tiengnhatsocap.png"
+    },
+    {
+      "id": 13,
+      "name": "Khoá học Machine Learning ứng dụng",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 1430402,
+      "image_url": "machinelearning.png"
+    },
+    {
+      "id": 14,
+      "name": "Khóa học Kỹ năng thuyết trình",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 1816302,
+      "image_url": "kynangthuyettrinh.png"
+    },
+    {
+      "id": 15,
+      "name": "Khóa học ReactJS cho người mới bắt đầu",
+      "description": "Chương trình học linh hoạt, theo tốc độ của bạn.",
+      "price": 687664,
+      "image_url": "reactjschonguoimoi.png"
+    },
+    {
+      "id": 16,
+      "name": "Tài liệu luyện thi TOEIC 800+",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 1077931,
+      "image_url": "toeic800.png"
+    },
+    {
+      "id": 17,
+      "name": "Khoá học Machine Learning ứng dụng",
+      "description": "Khóa học cập nhật kiến thức mới nhất hiện nay.",
+      "price": 1898013,
+      "image_url": "machinelearning.png"
+    },
+    {
+      "id": 18,
+      "name": "Combo giáo trình Toán lớp 6",
+      "description": "Thực hành qua bài tập và dự án cuối khoá.",
+      "price": 966000,
+      "image_url": "math_combo2.png"
+    },
+    {
+      "id": 19,
+      "name": "Lớp học Khoa học vũ trụ cho trẻ",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 1342900,
+      "image_url": "khoahocvutru.png"
+    },
+    {
+      "id": 20,
+      "name": "Tài liệu luyện thi TOEIC 800+",
+      "description": "Khám phá kiến thức nền tảng và kỹ năng ứng dụng thực tế.",
+      "price": 1207790,
+      "image_url": "toeic800.png"
+    },
+    {
+      "id": 21,
+      "name": "Combo giáo trình Toán lớp 6",
+      "description": "Thực hành qua bài tập và dự án cuối khoá.",
+      "price": 1782609,
+      "image_url": "math_combo2.png"
+    },
+    {
+      "id": 22,
+      "name": "Tài liệu STEM cho học sinh cấp 2",
+      "description": "Khoá học được thiết kế dành riêng cho người mới bắt đầu.",
+      "price": 711057,
+      "image_url": "stemcap2.png"
+    },
+    {
+      "id": 23,
+      "name": "Khóa học ReactJS cho người mới bắt đầu",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 909181,
+      "image_url": "reactjschonguoimoi.png"
+    },
+    {
+      "id": 24,
+      "name": "Khoá học Digital Marketing 2025",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 1030669,
+      "image_url": "digital_marketing.png"
+    },
+    {
+      "id": 25,
+      "name": "Khoá học Photoshop cho Designer",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 1026528,
+      "image_url": "photoshop_for_designer.png"
+    },
+    {
+      "id": 26,
+      "name": "Lớp học Vẽ truyện tranh Manga",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 1145754,
+      "image_url": "manga.png"
+    },
+    {
+      "id": 27,
+      "name": "Khoá học thiết kế PowerPoint chuyên nghiệp",
+      "description": "Thực hành qua bài tập và dự án cuối khoá.",
+      "price": 1973856,
+      "image_url": "powerpoint.png"
+    },
+    {
+      "id": 28,
+      "name": "Khóa học Data Analysis bằng Excel",
+      "description": "Phù hợp với học sinh, sinh viên và người đi làm.",
+      "price": 885319,
+      "image_url": "excel_data.png"
+    },
+    {
+      "id": 29,
+      "name": "Khóa học ReactJS cho người mới bắt đầu",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 1664814,
+      "image_url": "reactjschonguoimoi.png"
+    },
+    {
+      "id": 30,
+      "name": "Tài liệu luyện thi TOEIC 800+",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 1895254,
+      "image_url": "toeic800.png"
+    },
+    {
+      "id": 31,
+      "name": "Khóa học Data Analysis bằng Excel",
+      "description": "Chương trình học linh hoạt, theo tốc độ của bạn.",
+      "price": 1794502,
+      "image_url": "excel_data.png"
+    },
+    {
+      "id": 32,
+      "name": "Tài liệu luyện thi TOEIC 800+",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 1090839,
+      "image_url": "toeic800.png"
+    },
+    {
+      "id": 33,
+      "name": "Lớp học trực tuyến: Tiếng Nhật sơ cấp",
+      "description": "Phù hợp với học sinh, sinh viên và người đi làm.",
+      "price": 1059099,
+      "image_url": "tiengnhatsocap.png"
+    },
+    {
+      "id": 34,
+      "name": "Khóa học ReactJS cho người mới bắt đầu",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 132675,
+      "image_url": "reactjschonguoimoi.png"
+    },
+    {
+      "id": 35,
+      "name": "Giáo trình Kỹ năng mềm cho sinh viên",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 1156918,
+      "image_url": "soft_skills.png"
+    },
+    {
+      "id": 36,
+      "name": "Combo giáo trình Toán lớp 6",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 1777230,
+      "image_url": "math_combo2.png"
+    },
+    {
+      "id": 37,
+      "name": "Khoá học Machine Learning ứng dụng",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 1068469,
+      "image_url": "machinelearning.png"
+    },
+    {
+      "id": 38,
+      "name": "Khoá học Machine Learning ứng dụng",
+      "description": "Chương trình học linh hoạt, theo tốc độ của bạn.",
+      "price": 1542799,
+      "image_url": "machinelearning.png"
+    },
+    {
+      "id": 39,
+      "name": "Tài liệu luyện thi TOEIC 800+",
+      "description": "Được giảng dạy bởi giảng viên nhiều kinh nghiệm.",
+      "price": 1317806,
+      "image_url": "toeic800.png"
+    },
+    {
+      "id": 40,
+      "name": "Lớp học trực tuyến: Tiếng Nhật sơ cấp",
+      "description": "Khám phá kiến thức nền tảng và kỹ năng ứng dụng thực tế.",
+      "price": 1323184,
+      "image_url": "tiengnhatsocap.png"
+    },
+    {
+      "id": 41,
+      "name": "Khoá học Lập trình C++ từ cơ bản đến nâng cao",
+      "description": "Khám phá kiến thức nền tảng và kỹ năng ứng dụng thực tế.",
+      "price": 1485218,
+      "image_url": "laptrinhc.png"
+    },
+    {
+      "id": 42,
+      "name": "Tài liệu STEM cho học sinh cấp 2",
+      "description": "Thực hành qua bài tập và dự án cuối khoá.",
+      "price": 1799409,
+      "image_url": "stemcap2.png"
+    },
+    {
+      "id": 43,
+      "name": "Khóa học Tư duy phản biện cho học sinh",
+      "description": "Khám phá kiến thức nền tảng và kỹ năng ứng dụng thực tế.",
+      "price": 935335,
+      "image_url": "tu_duy_phan_bien.png"
+    },
+    {
+      "id": 44,
+      "name": "Lớp học Khoa học vũ trụ cho trẻ",
+      "description": "Khoá học được thiết kế dành riêng cho người mới bắt đầu.",
+      "price": 785982,
+      "image_url": "khoahocvutru.png"
+    },
+    {
+      "id": 45,
+      "name": "Tài liệu luyện thi THPT Quốc gia môn Sử",
+      "description": "Khóa học cập nhật kiến thức mới nhất hiện nay.",
+      "price": 540006,
+      "image_url": "history_thpt.png"
+    },
+    {
+      "id": 46,
+      "name": "Khoá học Digital Marketing 2025",
+      "description": "Khóa học cập nhật kiến thức mới nhất hiện nay.",
+      "price": 1350080,
+      "image_url": "digital_marketing.png"
+    },
+    {
+      "id": 47,
+      "name": "Khóa học Data Analysis bằng Excel",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 103150,
+      "image_url": "excel_data.png"
+    },
+    {
+      "id": 48,
+      "name": "Giáo trình Kỹ năng mềm cho sinh viên",
+      "description": "Phù hợp với học sinh, sinh viên và người đi làm.",
+      "price": 498889,
+      "image_url": "soft_skills.png"
+    },
+    {
+      "id": 49,
+      "name": "Lớp học Khoa học vũ trụ cho trẻ",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 1853573,
+      "image_url": "khoahocvutru.png"
+    },
+    {
+      "id": 50,
+      "name": "Tài liệu học tiếng Trung giao tiếp",
+      "description": "Chương trình học linh hoạt, theo tốc độ của bạn.",
+      "price": 1500397,
+      "image_url": "chinese.png"
+    },
+    {
+      "id": 51,
+      "name": "Giáo trình Kỹ năng mềm cho sinh viên",
+      "description": "Khoá học được thiết kế dành riêng cho người mới bắt đầu.",
+      "price": 463560,
+      "image_url": "soft_skills.png"
+    },
+    {
+      "id": 52,
+      "name": "Khóa học ReactJS cho người mới bắt đầu",
+      "description": "Tài liệu kèm hình ảnh sinh động, dễ tiếp thu.",
+      "price": 1620953,
+      "image_url": "reactjschonguoimoi.png"
+    },
+    {
+      "id": 53,
+      "name": "Khóa học Data Analysis bằng Excel",
+      "description": "Khóa học cập nhật kiến thức mới nhất hiện nay.",
+      "price": 137352,
+      "image_url": "excel_data.png"
+    },
+    {
+      "id": 54,
+      "name": "Khoá học Lập trình C++ từ cơ bản đến nâng cao",
+      "description": "Học mọi lúc mọi nơi, chỉ cần có kết nối internet.",
+      "price": 1307163,
+      "image_url": "laptrinhc.png"
+    },
+    {
+      "id": 55,
+      "name": "Giáo trình Kỹ năng mềm cho sinh viên",
+      "description": "Khóa học cập nhật kiến thức mới nhất hiện nay.",
+      "price": 1232605,
+      "image_url": "soft_skills.png"
+    },
+    {
+      "id": 56,
+      "name": "Lớp học Vẽ truyện tranh Manga",
+      "description": "Chương trình học linh hoạt, theo tốc độ của bạn.",
+      "price": 1978277,
+      "image_url": "manga.png"
+    },
+    {
+      "id": 57,
+      "name": "Khóa học Lập trình Web Fullstack",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 1507332,
+      "image_url": "fullstack.png"
+    },
+    {
+      "id": 58,
+      "name": "Khoá học Lập trình C++ từ cơ bản đến nâng cao",
+      "description": "Chương trình học linh hoạt, theo tốc độ của bạn.",
+      "price": 1713613,
+      "image_url": "laptrinhc.png"
+    },
+    {
+      "id": 59,
+      "name": "Khoá học Lập trình C++ từ cơ bản đến nâng cao",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 1403012,
+      "image_url": "laptrinhc.png"
+    },
+    {
+      "id": 60,
+      "name": "Khoá học Machine Learning ứng dụng",
+      "description": "Tài liệu cô đọng, dễ hiểu, đầy đủ ví dụ minh hoạ.",
+      "price": 1080214,
+      "image_url": "machinelearning.png"
+    }
+  ]
+}
