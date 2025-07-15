@@ -3,14 +3,34 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faBell as Bell, faCircleInfo, faBars, faXmark, faHeadset,
     faRightToBracket, faUser, faHeart  } from '@fortawesome/free-solid-svg-icons';
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'; 
+import { useState, useEffect } from 'react';
 
-function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter }) {
-  const handleSearch = () => {
-    searchTerm = document.getElementById('input-search').value;
-    setSearchTerm(searchTerm);
-    priceFilter = document.getElementById('priceFilter').value;
-    setPriceFilter(priceFilter);
-};  
+function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId }) {
+    const [favorites, setFavorites] = useState([]);
+    const handleSearch = () => {
+        searchTerm = document.getElementById('input-search').value;
+        setSearchTerm(searchTerm);
+        priceFilter = document.getElementById('priceFilter').value;
+        setPriceFilter(priceFilter);
+    };
+  useEffect(() => {
+    const fetchFavorites = async () => {
+      try {
+        const resFav = await fetch(`http://localhost:8000/favorites?user_id=${userId}`);
+        const favoritesData = await resFav.json();
+        const productIds = favoritesData.map(f => f.product_id);
+
+        const resProducts = await fetch('http://localhost:8000/products');
+        const productsData = await resProducts.json();
+
+        const favoriteProducts = productsData.filter(p => productIds.includes(Number(p.id)));
+        setFavorites(favoriteProducts);
+      } catch (err) {
+        console.error("Lỗi khi lấy yêu thích:", err);
+      }
+    };
+    fetchFavorites();
+  }, [userId]);
   return (
     <nav className="navbar">
         <div className='navbar-top'>
@@ -77,13 +97,23 @@ function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter }) {
                     </button>
                 </form>
             </div>
-            <div className="cart-container">
-                <a  href="/cart" className="navbar-cart">
-                    <FontAwesomeIcon  className='shop-cart-icon' icon={faHeart} />
+            <div className="favorite-container">
+                <a  href="/favorite" className="navbar-favorite">
+                    <FontAwesomeIcon  className='favorite-icon' icon={faHeart} />
                 </a>
-                <div className="cart-popup">
+                <div className="favorite-popup">
                     <div className="arrow-up"></div>
-                    <p>Chưa Có Sản Phẩm</p>
+                    {favorites.length > 0 ? (
+                        favorites.map((product) => (  
+                            <div key={product.id} className="favorite-item">
+                                <img src={`/product-images/${product.image_url}`} alt={product.name} />
+                                <p>{product.name}</p>
+                                <p className='price-red'>{Number(product.price).toLocaleString('vi-VN')} ₫</p>
+                            </div>
+                        ))
+                    ) : (
+                        <p>Chưa Có Sản Phẩm</p>
+                    )}
                 </div>
             </div>
             <label htmlFor="bars_open" className='nav_bars_icon'><FontAwesomeIcon icon={faBars} /></label>

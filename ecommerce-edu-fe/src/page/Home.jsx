@@ -16,6 +16,7 @@ function Home() {
         setSearchTerm={setSearchTerm} 
         priceFilter={priceFilter}  
         setPriceFilter={setPriceFilter}
+        userId={11}
       />  
       {searchTerm.trim() === "" && priceFilter === "" && isSuggestionMode == false && <AutoSlider />}
       <Products 

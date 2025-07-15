@@ -9,8 +9,6 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-
-  // Lấy tất cả sản phẩm ban đầu
   useEffect(() => {
     fetchAllProducts();
   }, []);
