@@ -87,12 +87,37 @@
   font-size: 18px;
   color: #888;
 }
+.recommend-link {
+  position: sticky;
+  top: 120px; 
+  z-index: 90;
+  display: block;
+  text-align: center;
+  margin: 20px 10% 10px 10%;
+  font-size: 18px;
+  color: var(--text2-color);
+  text-decoration: none;
+  padding: 18px;
+  background-color: white;
+  border-bottom: 5px solid var(--text2-color);
+}
+
+.recommend-link:hover {
+  color: var(--text2-color);
+}
+
 @media (max-width: 1023px) {
   .container-products {
     margin: 20px 4% 0 4%;
   }
   .btn-detail {
     display: block;
+  }
+    .recommend-link  {
+    margin: 20px 4% 0 4%;
+  }
+  .recommend-link {
+      top: 60px; 
   }
 }
 

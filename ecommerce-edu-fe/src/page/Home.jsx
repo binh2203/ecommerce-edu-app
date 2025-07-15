@@ -8,6 +8,7 @@ import { useState } from 'react';
 function Home() {
   const [searchTerm, setSearchTerm] = useState("");
   const [priceFilter, setPriceFilter] = useState("");
+  const [isSuggestionMode, setIsSuggestionMode] = useState(false);
   return (
     <div className="home-container">
       <Navbar 
@@ -16,9 +17,14 @@ function Home() {
         priceFilter={priceFilter}  
         setPriceFilter={setPriceFilter}
       />  
-      <AutoSlider />
-      <a className='recommend-link' href="/">GỢI Ý CHO BẠN</a>
-      <Products searchTerm={searchTerm}  priceFilter={priceFilter}/>
+      {searchTerm.trim() === "" && priceFilter === "" && isSuggestionMode == false && <AutoSlider />}
+      <Products 
+        searchTerm={searchTerm}
+        priceFilter={priceFilter} 
+        userId={11}
+        isSuggestionMode={isSuggestionMode}
+        setIsSuggestionMode={setIsSuggestionMode}
+      />
       <Footer />
     </div>
   );

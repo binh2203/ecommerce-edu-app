@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from 'react';
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faBell as Bell, faCircleInfo, faBars, faXmark, faHeadset,
     faRightToBracket, faUser, faHeart  } from '@fortawesome/free-solid-svg-icons';
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'; 
-import { Link } from 'react-router-dom';
 
 function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter }) {
   const handleSearch = () => {
@@ -30,27 +28,27 @@ function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter }) {
                             <a href="/notice">Thông Báo &nbsp; <FontAwesomeIcon icon={Bell} /></a>
                             <div className="notice-popup">
                                 <div className="arrow-up"></div>
-                                <p>Đăng nhập để xem thông báo của bạn</p>
+                                <p>Bạn chưa có thông báo nào</p>
                             </div>
                         </div>  
                     </li>
                     <li>
-                        <a href="/support">Hỗ Trợ &nbsp; <FontAwesomeIcon icon={faCircleInfo} /></a>
+                        <a href="/">Hỗ Trợ &nbsp; <FontAwesomeIcon icon={faCircleInfo} /></a>
                     </li>
-                    <li><a href="/register">Đăng ký</a></li>
+                    <li><a href="/">Đăng ký</a></li>
                     <li className="separator">|</li>
-                    <li><a href="/login">Đăng nhập</a></li>
+                    <li><a href="/">Đăng nhập</a></li>
                 </ul>
             </div>
         </div>
         <div className="navbar-bottom">
-            <Link to="/" className="navbar-logo">
+            <a href="/" className="navbar-logo">
                 <img className="image-logo" src={`/book.svg`} alt="logo" />
                 <div>
                     <p className="navbar-logo-top"><b>LEANO</b></p>
                     <p className="navbar-logo-bottom">Learn Anything Online</p>  
                 </div>
-            </Link>
+            </a>
             <div className="notice-mobile">
                 <a href="/notice"><FontAwesomeIcon icon={Bell} /></a>
             </div>
