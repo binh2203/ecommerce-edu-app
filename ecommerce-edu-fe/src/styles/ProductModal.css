@@ -86,7 +86,9 @@
   background-color: var(--primary-color);
   border: none;
 }
-
+.btn-add-favorite:focus {
+  outline: none;
+}
 .btn-buy-now:hover {
   background-color: var(--secondary-color);
 }

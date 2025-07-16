@@ -39,6 +39,7 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
 
       setProducts(suggestedProducts);
       setIsSuggestionMode(true);
+      await new Promise(r => setTimeout(r, 1000));
     } catch (err) {
       setError('Không thể lấy gợi ý lúc này');
     } finally {
@@ -75,53 +76,68 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
         </a>
       </div>
 
-      {loading && <p>Đang tải gợi ý...</p>}
-      {error && <p className="no-products" style={{ color: 'red' }}>{error}</p>}
+      {/* Loading skeleton khi đang gợi ý */}
+      {loading ? (
+        <div className="products-grid">
+          {[...Array(8)].map((_, i) => (
+            <div key={i} className="product-card skeleton">
+              <div className="skeleton-image" />
+              <div className="skeleton-line short" />
+              <div className="skeleton-line long" />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="container-products">
+          {error && <p className="no-products" style={{ color: 'red' }}>{error}</p>}
 
-      <div className="container-products">
-        {filtered.length > 0 ? (
-          <div className="grid">
-            {filtered.map((product) => (
-              <div key={product.id} className="product-card">
-                {product.image_url && (
-                  <img
-                    src={`/product-images/${product.image_url}`}
-                    alt={product.name}
-                  />
-                )}
-                <p className="description-font">
-                  {truncate(product.description, 40)}
-                </p>
-                <p className="price-red">
-                  {Number(product.price).toLocaleString('vi-VN')} ₫
-                </p>
-                <button
-                  className="btn-detail"
-                  onClick={() => setSelectedProduct(product)}
-                >
-                  <p>Xem chi tiết</p>
-                </button>
-              </div>
-            ))}
-          </div>
-        ) : (
-          <div className="no-products">
-            <p>Không tìm thấy sản phẩm phù hợp.</p>
-          </div>
-        )}
-      </div>
-      {isSuggestionMode && (
-          <a
-            className="recommend-link"
-            href="#"
-            onClick={(e) => {
-              e.preventDefault();
-              fetchAllProducts();
-            }}
-          >
-            XEM TẤT CẢ SẢN PHẨM
-          </a>
-      )}  
+          {filtered.length > 0 ? (
+            <div className="grid">
+              {filtered.map((product) => (
+                <div key={product.id} className="product-card">
+                  {product.image_url && (
+                    <img
+                      src={`/product-images/${product.image_url}`}
+                      alt={product.name}
+                    />
+                  )}
+                  <p className="description-font">
+                    {truncate(product.description, 40)}
+                  </p>
+                  <p className="price-red">
+                    {Number(product.price).toLocaleString('vi-VN')} ₫
+                  </p>
+                  <button
+                    className="btn-detail"
+                    onClick={() => setSelectedProduct(product)}
+                  >
+                    <p>Xem chi tiết</p>
+                  </button>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-products">
+              <p>Không tìm thấy sản phẩm phù hợp.</p>
+            </div>
+          )}
+        </div>
+      )}
+
+      {/* Link quay lại tất cả sản phẩm */}
+      {isSuggestionMode && !loading && (
+        <a
+          className="recommend-link"
+          href="#"
+          onClick={(e) => {
+            e.preventDefault();
+            fetchAllProducts();
+          }}
+        >
+          XEM TẤT CẢ SẢN PHẨM
+        </a>
+      )}
+
       <ProductModal
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}

@@ -15,15 +15,11 @@ function ProductModal({ product, onClose, setNewFavorite }) {
     };
   }, [product]);
   if (!product) return null;
-  const addFavorite = async (user_id, product) => {
+  const addFavorite = async (user_Id, product) => {
     try {
       // Kiểm tra trùng
-      const checkRes = await fetch(`http://localhost:8000/favorites?user_id=${user_id}&product_id=${product.id}`);
+      const checkRes = await fetch(`http://localhost:8000/favorites?user_id=${user_Id}&product_id=${product.id}`);
       const existing = await checkRes.json();
-      const res = await fetch('http://localhost:8000/favorites');
-      const favorites = await res.json();
-      const maxId = favorites.reduce((max, item) => Math.max(max, Number(item.id)), 0);
-      const newId = maxId + 1;
       if (existing.length > 0) {
         toast.warning(`Sản phẩm "${product.name}" đã có trong danh sách yêu thích`);
         return;
@@ -36,8 +32,7 @@ function ProductModal({ product, onClose, setNewFavorite }) {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          id: newId,
-          user_id,
+          user_id: user_Id,
           product_id: Number(product.id),
         }),
       });
@@ -45,6 +40,7 @@ function ProductModal({ product, onClose, setNewFavorite }) {
       if (!response.ok) throw new Error('Lỗi khi thêm');
       setNewFavorite(product.id);
       toast.success(`Đã thêm "${product.name}" vào yêu thích`);
+      onClose();
     } catch (err) {
       console.error(err);
       toast.error("Không thể thêm vào yêu thích");

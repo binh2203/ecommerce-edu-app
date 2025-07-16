@@ -82,10 +82,6 @@ function Favorite({ setSelectedProduct, userId }) {
                 <div
                   key={product.id}
                   className="favorite-page-item"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setSelectedProduct(product);
-                  }}
                 >
                   <div className="favorite-page-item-image">
                     <img src={`/product-images/${product.image_url}`} alt={product.name} />

@@ -7,9 +7,39 @@
   ],
   "favorites": [
     {
-      "id": 1,
+      "id": "70ac",
       "user_id": 11,
-      "product_id": 53
+      "product_id": 34
+    },
+    {
+      "id": "130c",
+      "user_id": 11,
+      "product_id": 5
+    },
+    {
+      "id": "eb28",
+      "user_id": 11,
+      "product_id": 48
+    },
+    {
+      "id": "756b",
+      "user_id": 11,
+      "product_id": 45
+    },
+    {
+      "id": "6e30",
+      "user_id": 11,
+      "product_id": 28
+    },
+    {
+      "id": "0590",
+      "user_id": 11,
+      "product_id": 24
+    },
+    {
+      "id": "0f30",
+      "user_id": 11,
+      "product_id": 15
     }
   ],
   "suggestions": [
