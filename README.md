@@ -36,7 +36,7 @@ Tạo file `db.json` trong thư mục `mock-api/` và thêm dữ liệu mẫu:
 npx json-server --watch mock-api/db.json --port 8000
 ```
 
-> Mặc định app sẽ gửi request đến `http://localhost:8000`.
+> Mặc định app sẽ gửi request đến `http://localhost:8000` trong bài này dùng JSON Server + Render: `https://mock-api-f5mz.onrender.com`.
 
 ### 4. Chạy ứng dụng React
 
