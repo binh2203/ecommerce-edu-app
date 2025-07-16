@@ -1,11 +1,13 @@
 import '../styles/Navbar.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faBell as Bell, faCircleInfo, faBars, faXmark, faHeadset,
-    faRightToBracket, faUser, faHeart  } from '@fortawesome/free-solid-svg-icons';
+    faRightToBracket, faUser, faHeart, faHouse  } from '@fortawesome/free-solid-svg-icons';
 import { faSquareFacebook } from '@fortawesome/free-brands-svg-icons'; 
 import { useState, useEffect } from 'react';
+import { truncate, fetchFavoritesData } from '../utils/function.js';
 
-function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId }) {
+
+function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId, setSelectedProduct, newFavorite}) {
     const [favorites, setFavorites] = useState([]);
     const handleSearch = () => {
         searchTerm = document.getElementById('input-search').value;
@@ -14,23 +16,8 @@ function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId
         setPriceFilter(priceFilter);
     };
   useEffect(() => {
-    const fetchFavorites = async () => {
-      try {
-        const resFav = await fetch(`http://localhost:8000/favorites?user_id=${userId}`);
-        const favoritesData = await resFav.json();
-        const productIds = favoritesData.map(f => f.product_id);
-
-        const resProducts = await fetch('http://localhost:8000/products');
-        const productsData = await resProducts.json();
-
-        const favoriteProducts = productsData.filter(p => productIds.includes(Number(p.id)));
-        setFavorites(favoriteProducts);
-      } catch (err) {
-        console.error("Lỗi khi lấy yêu thích:", err);
-      }
-    };
-    fetchFavorites();
-  }, [userId]);
+    fetchFavoritesData(userId).then(setFavorites);
+  }, [userId, newFavorite]);
   return (
     <nav className="navbar">
         <div className='navbar-top'>
@@ -69,8 +56,8 @@ function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId
                     <p className="navbar-logo-bottom">Learn Anything Online</p>  
                 </div>
             </a>
-            <div className="notice-mobile">
-                <a href="/notice"><FontAwesomeIcon icon={Bell} /></a>
+            <div className="house-mobile">
+                <a href="/"><FontAwesomeIcon icon={faHouse} /></a>
             </div>
             <div className="navbar-search">
                 <form
@@ -104,13 +91,18 @@ function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId
                 <div className="favorite-popup">
                     <div className="arrow-up"></div>
                     {favorites.length > 0 ? (
-                        favorites.map((product) => (  
-                            <div key={product.id} className="favorite-item">
-                                <img src={`/product-images/${product.image_url}`} alt={product.name} />
-                                <p>{product.name}</p>
-                                <p className='price-red'>{Number(product.price).toLocaleString('vi-VN')} ₫</p>
-                            </div>
-                        ))
+                        <div className='favorite-list'>
+                            <p className='fav-title'>Sản phẩm mới thêm</p>
+                            {favorites.slice(-5).map((product) => (  
+                                <a href='#' key={product.id} className="favorite-item" onClick={() => setSelectedProduct(product)}>
+                                    <img src={`/product-images/${product.image_url}`} alt={product.name} />
+                                    <p>{truncate(product.name, 35)}</p>
+                                    <p className='price-red-popup'>{Number(product.price).toLocaleString('vi-VN')} ₫</p>
+                                </a>
+                            ))}
+                            <p className='total-fav'>Tổng sản phẩm: {favorites.length}</p>
+                            <a href='/favorite' className='view-all-fav'>Xem tất cả</a>
+                        </div>
                     ) : (
                         <p>Chưa Có Sản Phẩm</p>
                     )}
@@ -135,7 +127,7 @@ function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId
                         </li>
                         <li>
                             <FontAwesomeIcon icon={faHeart} />
-                            <a href="/orders">Sản phẩm yêu thích</a> 
+                            <a href="/favorite">Sản phẩm yêu thích</a> 
                         </li>
                         <li>
                             <FontAwesomeIcon icon={faHeadset} />

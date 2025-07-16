@@ -19,6 +19,7 @@ input:-webkit-autofill:active {
 .navbar-top {
   display: flex;
   justify-content: space-between;
+  background-color:	var(--primary-color);
   align-items: center;
   padding: 0 10% 0 10%;
 }
@@ -146,44 +147,66 @@ input:-webkit-autofill:active {
 }
 
 /*  */
+/* Navbar.css */
 .favorite-container {
-  position: relative;
-  display: inline-block;
+    position: relative;
 }
 
-
 .favorite-popup {
-  position: absolute;
-  top: 45px;
-  right: 0;
-  background: white;
-  padding: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-  border-radius: 4px;
-  width: 400px;
-  height: 400px;
-  text-align: center;
-  display: none;
-  z-index: 100;
-  color:black;
+    position: absolute;
+    top: 45px;
+    right: 0;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 4px;
+    width: 400px;
+    height: 420px;
+    text-align: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    z-index: 100;
+    color: black;
+}
+
+.favorite-container:hover .favorite-popup {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; /* Hiển thị ngay lập tức */
+}
+
+.favorite-container:not(:hover) .favorite-popup {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0.5s; /* Đợi 0.5s trước khi ẩn */
 }
 
 .favorite-popup::before {
-  content: '';
-  position: absolute;
-  top: -18px;
-  right: 17.2px;
-  width: 0;
-  height: 0;
-  border-style: solid;
-  border-width: 10px;
-  border-color: transparent transparent white transparent;
-
+    content: '';
+    position: absolute;
+    top: -18px;
+    right: 17.2px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 10px;
+    border-color: transparent transparent white transparent;
+    opacity: 0;
+    visibility: hidden; /* Thêm visibility để đồng bộ */
+    transition: opacity 0.3s ease, visibility 0.3s ease; /* Đồng bộ với .favorite-popup */
 }
 
-/* Hiển thị tooltip khi hover vào container */
-.favorite-container:hover .favorite-popup {
-  display: block;
+.favorite-container:hover .favorite-popup::before {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 0s; /* Hiển thị ngay lập tức */
+}
+
+.favorite-container:not(:hover) .favorite-popup::before {
+    opacity: 0;
+    visibility: hidden;
+    transition-delay: 0.5s; /* Đợi 0.5s trước khi ẩn, đồng bộ với popup */
 }
 
 
@@ -340,11 +363,11 @@ input:-webkit-autofill:active {
   transform: translateX(0);
   opacity: 1;
 }
-.notice-mobile{
+.house-mobile{
   font-size: 1.8rem;
   display: none;
 }
-.notice-mobile a{
+.house-mobile a{
   color: #fff;
 }
 .select-price {
@@ -370,22 +393,69 @@ input:-webkit-autofill:active {
   color: var(--text-color);
   border-bottom: 1px solid var(--primary-color);
 }
-.price-red {
-  font-size: 14px !important;
+.favorite-item:hover {
+  background-color: #f0f0f0;
+  color: var(--text-color);
+}
+.fav-title {
+  font-size: 13px;
+  color: gray;
+  padding: 0;
+  margin: -10px 0 10px 0;
+  text-align: left;
+}
+.total-fav {
+  position: absolute;
+  bottom: -25px;
+  font-size: 14px;
+  color: gray;
+  text-align: left;
+}
+.price-red-popup {
+  color: red;
+  font-size: 14px;
 }
 .favorite-item img {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
   object-fit: cover;
   border: 1px solid var(--primary-color);
 }
+.des-fav-item {
+  font-size: 15px;
+  color: var(--text2-color);
+  margin-top: 5px;
+}
+.favorite-list {
+  position: relative;
+  height: 100%;
+}
+.view-all-fav {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 10px 50px;
+  cursor: pointer;
+  font-size: 14px;
+  border-radius: 4px;
+  position: absolute;
+  right: 0;
+  bottom: -20px;
+}
 
+.view-all-fav:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
 /* Responsive */
 @media (max-width: 1023px) {
   .navbar-top{
     display: none;
   }
-  .notice-mobile{
+  .favorite-popup {
+    display: none;
+  }
+  .house-mobile{
     display: block;
   }
   .nav_bars_icon {
@@ -409,7 +479,6 @@ input:-webkit-autofill:active {
   }
 }
 @media (max-width: 480px) {
-
   .navbar-mobile {
     width: 100%;
   }
@@ -418,19 +487,8 @@ input:-webkit-autofill:active {
     margin-right: 4px;
     text-align: center;
   }
-  .navbar-favorite {
-    position: fixed;
-    bottom: 80px;
-    padding: 20px;
-    background-color: var(--primary-color);
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-  }
-  .favorite-icon {
-    width: 25px;
-    height: 25px;
-    margin: 0;
+  .favorite-container {
+    display: none;
   }
 
 }

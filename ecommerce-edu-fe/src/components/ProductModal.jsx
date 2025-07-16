@@ -1,8 +1,9 @@
 import "../styles/ProductModal.css";
 import { useEffect } from 'react';
 import { toast } from 'react-toastify';
+import Favorite from "../page/Favorite";
 
-function ProductModal({ product, onClose }) {
+function ProductModal({ product, onClose, setNewFavorite }) {
   useEffect(() => {
     if (product) {
       document.body.style.overflow = 'hidden';
@@ -16,20 +17,37 @@ function ProductModal({ product, onClose }) {
   if (!product) return null;
   const addFavorite = async (user_id, product) => {
     try {
+      // Kiểm tra trùng
+      const checkRes = await fetch(`http://localhost:8000/favorites?user_id=${user_id}&product_id=${product.id}`);
+      const existing = await checkRes.json();
+      const res = await fetch('http://localhost:8000/favorites');
+      const favorites = await res.json();
+      const maxId = favorites.reduce((max, item) => Math.max(max, Number(item.id)), 0);
+      const newId = maxId + 1;
+      if (existing.length > 0) {
+        toast.warning(`Sản phẩm "${product.name}" đã có trong danh sách yêu thích`);
+        return;
+      }
+
+      // Nếu chưa có thì thêm
       const response = await fetch(`http://localhost:8000/favorites`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({user_id: user_id, product_id: product.id }),
+        body: JSON.stringify({
+          id: newId,
+          user_id,
+          product_id: Number(product.id),
+        }),
       });
-      if (!response.ok) {
-        throw new Error('Failed to add to favorites');
-      }
-      toast.success(`Đã thêm sản phẩm: ${product.name} vào yêu thích`);
+
+      if (!response.ok) throw new Error('Lỗi khi thêm');
+      setNewFavorite(product.id);
+      toast.success(`Đã thêm "${product.name}" vào yêu thích`);
     } catch (err) {
       console.error(err);
-      toast.error('Không thể thêm vào yêu thích');
+      toast.error("Không thể thêm vào yêu thích");
     }
   };
   return (

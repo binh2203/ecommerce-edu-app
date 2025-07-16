@@ -90,7 +90,9 @@
 .btn-buy-now:hover {
   background-color: var(--secondary-color);
 }
-
+.btn-buy-now:focus {
+  outline: none;
+}
 @media (max-width: 1023px) {
   .modal-content {
     flex-direction: column;

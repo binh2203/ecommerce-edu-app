@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import '../styles/Products.css';
 import ProductModal from './ProductModal';
+import { truncate } from '../utils/function.js';
 
-function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSuggestionMode }) {
+function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSuggestionMode, selectedProduct, setSelectedProduct }) {
   const [products, setProducts] = useState([]);
-  const [selectedProduct, setSelectedProduct] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -45,15 +45,7 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
       setLoading(false);
     }
   };
-
-  const truncate = (text, maxLength) => {
-    if (text.length <= maxLength) return text;
-    const truncated = text.slice(0, maxLength - 3);
-    const lastSpace = truncated.lastIndexOf(' ');
-    if (lastSpace === -1) return truncated + '...';
-    return truncated.slice(0, lastSpace) + '...';
-  };
-
+  
   const filtered = products
     .filter((p) => {
       const nameMatch = p.name.toLowerCase().includes(searchTerm.toLowerCase());
