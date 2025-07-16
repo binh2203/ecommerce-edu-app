@@ -7,11 +7,11 @@ export   const truncate = (text, maxLength) => {
 };
 export async function fetchFavoritesData(userId) {
   try {
-    const resFav = await fetch(`http://localhost:8000/favorites?user_id=${userId}`);
+    const resFav = await fetch(`https://mock-api-f5mz.onrender.com/favorites?user_id=${userId}`);
     const favoritesData = await resFav.json();
     const productIds = favoritesData.map(f => f.product_id);
 
-    const resProducts = await fetch('http://localhost:8000/products');
+    const resProducts = await fetch('https://mock-api-f5mz.onrender.com/products');
     const productsData = await resProducts.json();
 
     const favoriteProducts = productsData.filter(p => productIds.includes(Number(p.id)));
@@ -26,7 +26,7 @@ export async function fetchFavoritesData(userId) {
 export const removeFromFavorites = async (userId, productId) => {
   try {
     // Lấy danh sách favorite để tìm id cần xoá
-    const res = await fetch(`http://localhost:8000/favorites?user_id=${userId}&product_id=${productId}`);
+    const res = await fetch(`https://mock-api-f5mz.onrender.com/favorites?user_id=${userId}&product_id=${productId}`);
     const data = await res.json();
 
     if (data.length === 0) {
@@ -37,7 +37,7 @@ export const removeFromFavorites = async (userId, productId) => {
     const favoriteId = data[0].id;
 
     // Gửi request DELETE
-    const deleteRes = await fetch(`http://localhost:8000/favorites/${favoriteId}`, {
+    const deleteRes = await fetch(`https://mock-api-f5mz.onrender.com/favorites/${favoriteId}`, {
       method: "DELETE",
     });
 

@@ -15,7 +15,7 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
 
   const fetchAllProducts = async () => {
     try {
-      const res = await axios.get('http://localhost:8000/products');
+      const res = await axios.get('https://mock-api-f5mz.onrender.com/products');
       setProducts(res.data);
       setIsSuggestionMode(false);
     } catch (err) {
@@ -27,10 +27,10 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get(`http://localhost:8000/suggestions?user_id=${userId}`);
+      const res = await axios.get(`https://mock-api-f5mz.onrender.com/suggestions?user_id=${userId}`);
       const suggestionProductIds = res.data.map((s) => s.product_id);
 
-      const resProducts = await axios.get('http://localhost:8000/products');
+      const resProducts = await axios.get('https://mock-api-f5mz.onrender.com/products');
       const allProducts = resProducts.data;
 
       const suggestedProducts = allProducts.filter((p) =>

@@ -18,7 +18,7 @@ function ProductModal({ product, onClose, setNewFavorite }) {
   const addFavorite = async (user_Id, product) => {
     try {
       // Kiểm tra trùng
-      const checkRes = await fetch(`http://localhost:8000/favorites?user_id=${user_Id}&product_id=${product.id}`);
+      const checkRes = await fetch(`https://mock-api-f5mz.onrender.com/favorites?user_id=${user_Id}&product_id=${product.id}`);
       const existing = await checkRes.json();
       if (existing.length > 0) {
         toast.warning(`Sản phẩm "${product.name}" đã có trong danh sách yêu thích`);
@@ -26,7 +26,7 @@ function ProductModal({ product, onClose, setNewFavorite }) {
       }
 
       // Nếu chưa có thì thêm
-      const response = await fetch(`http://localhost:8000/favorites`, {
+      const response = await fetch(`https://mock-api-f5mz.onrender.com/favorites`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
