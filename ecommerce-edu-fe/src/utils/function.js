@@ -5,13 +5,13 @@ export   const truncate = (text, maxLength) => {
     if (lastSpace === -1) return truncated + '...';
     return truncated.slice(0, lastSpace) + '...';
 };
-export async function fetchFavoritesData(userId) {
+export async function fetchFavoritesData(userId, url) {
   try {
-    const resFav = await fetch(`https://mock-api-f5mz.onrender.com/favorites?user_id=${userId}`);
+    const resFav = await fetch(`${url}/favorites?user_id=${userId}`);
     const favoritesData = await resFav.json();
     const productIds = favoritesData.map(f => f.product_id);
 
-    const resProducts = await fetch('https://mock-api-f5mz.onrender.com/products');
+    const resProducts = await fetch(`${url}/products`);
     const productsData = await resProducts.json();
 
     const favoriteProducts = productsData.filter(p => productIds.includes(Number(p.id)));
@@ -23,10 +23,10 @@ export async function fetchFavoritesData(userId) {
   }
 }
 
-export const removeFromFavorites = async (userId, productId) => {
+export const removeFromFavorites = async (userId, productId, url) => {
   try {
     // Lấy danh sách favorite để tìm id cần xoá
-    const res = await fetch(`https://mock-api-f5mz.onrender.com/favorites?user_id=${userId}&product_id=${productId}`);
+    const res = await fetch(`${url}/favorites?user_id=${userId}&product_id=${productId}`);
     const data = await res.json();
 
     if (data.length === 0) {
@@ -37,7 +37,7 @@ export const removeFromFavorites = async (userId, productId) => {
     const favoriteId = data[0].id;
 
     // Gửi request DELETE
-    const deleteRes = await fetch(`https://mock-api-f5mz.onrender.com/favorites/${favoriteId}`, {
+    const deleteRes = await fetch(`${url}/favorites/${favoriteId}`, {
       method: "DELETE",
     });
 

@@ -8,12 +8,12 @@ import { removeFromFavorites,  fetchFavoritesData } from '../utils/function';
 import { Link } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
-function Favorite({ setSelectedProduct, userId }) {
+function Favorite({userId, url }) {
   const handleRemove = async (productId) => {
-    const success = await removeFromFavorites(userId, productId);
+    const success = await removeFromFavorites(userId, productId, url);
     if (success) {
       toast.success("Đã xoá sản phẩm khỏi yêu thích");
-      const updated = await fetchFavoritesData(userId);
+      const updated = await fetchFavoritesData(userId, url);
       setFavorites(updated);
     } else {
       toast.error("Không thể xoá sản phẩm");
@@ -21,7 +21,7 @@ function Favorite({ setSelectedProduct, userId }) {
   };
   const [favorites, setFavorites] = useState([]);
   useEffect(() => {
-    fetchFavoritesData(userId).then(setFavorites);
+    fetchFavoritesData(userId, url).then(setFavorites);
   }, [userId]);
   return (
     <div className="favorite-page-container">

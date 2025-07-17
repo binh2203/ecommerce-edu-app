@@ -5,7 +5,7 @@ import Products from '../components/Products';
 import '../styles/Home.css';
 import { useState } from 'react';
 
-function Home({ userId, selectedProduct, setSelectedProduct, newFavorite, setNewFavorite }) {
+function Home({ userId, selectedProduct, setSelectedProduct, newFavorite, setNewFavorite, url }) {
   const [searchTerm, setSearchTerm] = useState("");
   const [priceFilter, setPriceFilter] = useState("");
   const [isSuggestionMode, setIsSuggestionMode] = useState(false);
@@ -20,6 +20,7 @@ function Home({ userId, selectedProduct, setSelectedProduct, newFavorite, setNew
         userId={userId}
         setSelectedProduct ={setSelectedProduct}
         newFavorite={newFavorite}
+        url={url}
       />  
       {searchTerm.trim() === "" && priceFilter === "" && isSuggestionMode == false && <AutoSlider />}     
 
@@ -31,6 +32,7 @@ function Home({ userId, selectedProduct, setSelectedProduct, newFavorite, setNew
         setIsSuggestionMode={setIsSuggestionMode}
         selectedProduct={selectedProduct}
         setSelectedProduct={setSelectedProduct}
+        url={url}
       />
       <Footer />
     </div>

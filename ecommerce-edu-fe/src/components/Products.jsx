@@ -4,7 +4,7 @@ import '../styles/Products.css';
 import ProductModal from './ProductModal';
 import { truncate } from '../utils/function.js';
 
-function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSuggestionMode, selectedProduct, setSelectedProduct }) {
+function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSuggestionMode, selectedProduct, setSelectedProduct, url }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -15,7 +15,7 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
 
   const fetchAllProducts = async () => {
     try {
-      const res = await axios.get('https://mock-api-f5mz.onrender.com/products');
+      const res = await axios.get(`${url}/products`);
       setProducts(res.data);
       setIsSuggestionMode(false);
     } catch (err) {
@@ -27,10 +27,10 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
     setLoading(true);
     setError('');
     try {
-      const res = await axios.get(`https://mock-api-f5mz.onrender.com/suggestions?user_id=${userId}`);
+      const res = await axios.get(`${url}/suggestions?user_id=${userId}`);
       const suggestionProductIds = res.data.map((s) => s.product_id);
 
-      const resProducts = await axios.get('https://mock-api-f5mz.onrender.com/products');
+      const resProducts = await axios.get(`${url}/products`);
       const allProducts = resProducts.data;
 
       const suggestedProducts = allProducts.filter((p) =>

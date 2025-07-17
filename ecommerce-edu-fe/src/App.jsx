@@ -12,7 +12,7 @@ function App() {
   const [userId] = useState(11);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [newFavorite, setNewFavorite] = useState(null);
-
+  const [url] = useState('https://mock-api-f5mz.onrender.com');
   return (
     <>
       <Routes>
@@ -25,6 +25,7 @@ function App() {
               setSelectedProduct={setSelectedProduct}
               newFavorite={newFavorite}
               setNewFavorite={setNewFavorite}
+              url={url}
             />
           }
         />
@@ -33,7 +34,7 @@ function App() {
           element={
             <Favorite
               userId={userId}
-              setSelectedProduct={setSelectedProduct}
+              url={url}
             />
           }
         />
@@ -42,6 +43,7 @@ function App() {
         setNewFavorite={setNewFavorite}
         product={selectedProduct}
         onClose={() => setSelectedProduct(null)}
+        url={url}
       />
       <ToastContainer />
     </>
