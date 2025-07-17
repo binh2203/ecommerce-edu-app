@@ -85,6 +85,7 @@
   border-radius: 4px;
   background-color: var(--primary-color);
   border: none;
+  color: #FFFFFF;
 }
 .btn-add-favorite:focus {
   outline: none;
