@@ -18,8 +18,12 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
       const res = await axios.get(`${url}/products`);
       setProducts(res.data);
       setIsSuggestionMode(false);
+      setLoading(true);
     } catch (err) {
       console.error(err);
+    }finally{
+      setLoading(false);
+      setError('');
     }
   };
 
