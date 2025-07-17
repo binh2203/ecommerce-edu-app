@@ -94,7 +94,7 @@ function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId
                     {favorites.length > 0 ? (
                         <div className='favorite-list'>
                             <p className='fav-title'>Sản phẩm mới thêm</p>
-                            {favorites.reverse().slice(-5).map((product) => (  
+                            {favorites.slice(-5).reverse().map((product) => (  
                                 <a href='#' key={product.id} className="favorite-item" onClick={() => setSelectedProduct(product)}>
                                     <img src={`/product-images/${product.image_url}`} alt={product.name} />
                                     <p>{truncate(product.name, 35)}</p>
