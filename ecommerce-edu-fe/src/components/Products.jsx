@@ -4,9 +4,9 @@ import '../styles/Products.css';
 import ProductModal from './ProductModal';
 import { truncate } from '../utils/function.js';
 
-function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSuggestionMode, selectedProduct, setSelectedProduct, url }) {
+function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSuggestionMode
+  , selectedProduct, setSelectedProduct, url, loading, setLoading }) {
   const [products, setProducts] = useState([]);
-  const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
   useEffect(() => {
@@ -79,7 +79,7 @@ function Products({ searchTerm, priceFilter, userId, isSuggestionMode, setIsSugg
       {/* Loading skeleton khi đang gợi ý */}
       {loading ? (
         <div className="products-grid">
-          {[...Array(8)].map((_, i) => (
+          {[...Array(12)].map((_, i) => (
             <div key={i} className="product-card skeleton">
               <div className="skeleton-image" />
               <div className="skeleton-line short" />

@@ -7,13 +7,18 @@ import { useState, useEffect } from 'react';
 import { truncate, fetchFavoritesData } from '../utils/function.js';
 
 
-function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, userId, setSelectedProduct, newFavorite, url }) {
+function Navbar({ searchTerm, setSearchTerm, priceFilter, setPriceFilter, setLoading,
+    userId, setSelectedProduct, newFavorite, url }) {
     const [favorites, setFavorites] = useState([]);
     const handleSearch = () => {
         searchTerm = document.getElementById('input-search').value;
         setSearchTerm(searchTerm);
         priceFilter = document.getElementById('priceFilter').value;
         setPriceFilter(priceFilter);
+        setLoading(true);
+        setTimeout(() => {
+            setLoading(false);
+        }, 1000);
     };
   useEffect(() => {
     fetchFavoritesData(userId, url).then(setFavorites);
