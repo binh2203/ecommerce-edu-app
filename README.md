@@ -1,6 +1,14 @@
 # LEANO - Website Học Trực Tuyến
 
-LEANO là một trang web thương mại điện tử đơn giản được xây dựng với **React + Vite**, cho phép người dùng tìm kiếm, yêu thích và xem chi tiết các sản phẩm sách.
+LEANO là một trang web thương mại điện tử đơn giản được xây dựng với **React + Vite**, cho phép người dùng:
+- Tìm kiếm và lọc theo giá.
+- Đánh dấu sản phẩm yêu thích.
+- Xem chi tiết các sản phẩm sách.
+- Gợi ý sản phẩm phù hợp AI (hard-code & mock api)
+- Có trang hiển thị danh sách các sản phẩm yêu thích (có thể xóa sản phẩm khỏi danh sách yêu thích)
+## Link demo
+
+[https://leano-edu.netlify.app/](https://leano-edu.netlify.app/)
 
 ## Công nghệ sử dụng
 
