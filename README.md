@@ -7,7 +7,7 @@ LEANO là một trang web thương mại điện tử đơn giản được xây
 - Gợi ý sản phẩm phù hợp AI (hard-code & mock api)
 - Có trang hiển thị danh sách các sản phẩm yêu thích (có thể xóa sản phẩm khỏi danh sách yêu thích)
 ## Link demo
-
+> Vui lòng chờ vài phút để JSON Server chạy vì tôi dùng phiên bản miễn phí:
 [https://leano-edu.netlify.app/](https://leano-edu.netlify.app/)
 
 ## Công nghệ sử dụng
