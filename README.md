@@ -112,7 +112,8 @@ ecommerce-edu-app/
 <img width="1896" height="894" alt="image" src="https://github.com/user-attachments/assets/1ebde14d-7a4b-4045-a132-eece93a09cce" />
 
 ### Loading skeleton khi gọi API gợi ý 
-<img width="1902" height="890" alt="image" src="https://github.com/user-attachments/assets/1d043c48-aac5-40ec-b7ac-99640f902619" />
+<img width="1898" height="888" alt="image" src="https://github.com/user-attachments/assets/af6c4d42-2850-4063-b7e4-a5d8a37dc2cd" />
+
 
 ### Xem chi tiết sản phẩm
 <img width="1919" height="907" alt="image" src="https://github.com/user-attachments/assets/ff6d13a8-9633-47db-8b84-c19bd0c1d87c" />
